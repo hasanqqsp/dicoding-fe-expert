@@ -1,0 +1,21 @@
+{
+  "id": "ngopi-disini-pwa-1",
+  "name": "NgopiDisiniCatalogue",
+  "short_name": "NgopiDisini",
+  "start_url": "index.html?launcher=true",
+  "theme_color": "#f6edce",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

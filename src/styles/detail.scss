@@ -1,0 +1,246 @@
+.restaurant-image {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  object-fit: cover;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.back-button {
+  color: #ffffff;
+  background-color: #3a170d;
+  text-decoration: none;
+  display: flex;
+  line-height: normal;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  min-height: 0;
+  border-radius: 6px;
+  text-wrap: nowrap;
+  &:hover {
+    background-color: #5c2f27;
+  }
+}
+#content {
+  .restaurant-name {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+  }
+}
+
+.restaurant-badges {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  .badge-item {
+    background-color: #c3883d;
+    color: #ffffff;
+    padding: 0.25rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    padding: 0.5rem 1rem;
+    svg {
+      margin-right: 0.25rem;
+    }
+  }
+}
+.icon-par-detail {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  svg {
+    margin-right: 0.25rem;
+  }
+}
+
+.restaurant-menu {
+  margin-top: 1rem;
+  display: grid;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  .menu-content {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    article {
+      flex-basis: calc(50% - 1rem);
+    }
+    ul li {
+      margin-left: 1rem;
+      padding-left: 0.5rem;
+      list-style-type: "- ";
+    }
+  }
+}
+.restaurant-reviews {
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .review-lists {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-content: space-between;
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    .review-item {
+      border-bottom: 1px solid #5c2f27;
+      height: 100%;
+    }
+    .review-header {
+      display: flex;
+      gap: 0.25rem;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+    .review-date {
+      font-size: 1rem;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    .reviewer-name {
+      font-weight: 600;
+    }
+    .review-content {
+      font-weight: 300;
+    }
+  }
+}
+@media (max-width: 480px) {
+  .restaurant-menu .menu-content {
+    article {
+      flex-basis: 100%;
+    }
+  }
+  .add-review {
+    .form-group {
+      flex-direction: column;
+      .form-label {
+        font-weight: 600;
+        margin-right: 0.5rem;
+        text-align: left;
+        flex-basis: content;
+      }
+    }
+  }
+}
+
+section {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+#favorite-button {
+  background-color: #c3883d;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  border: none;
+  font-size: 1.2rem;
+  font-family: inherit;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem auto;
+  &:hover {
+    background-color: #deaa67;
+  }
+}
+
+.add-review {
+  h3 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .form-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .form-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    flex-basis: 100px;
+    text-align: right;
+    font-size: 1.3rem;
+    margin-top: 0;
+  }
+  .form-control {
+    padding: 0rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #5c2f27;
+    font-size: 1.2rem;
+    font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1rem;
+  }
+  textarea.form-control {
+    min-height: 6rem;
+    resize: vertical;
+    padding: 0.75rem 0.5rem;
+  }
+  div button[type="submit"] {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    background-color: #3a170d;
+    color: #ffffff;
+    &:hover {
+      background-color: #5c2f27;
+    }
+    &:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    svg {
+      margin-left: 0.25rem;
+    }
+  }
+  .button-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+/* COLOR PALLETE */
+/* #dba75b	(219,167,91)
+#c3883d	(195,136,61)
+#f6edce	(246,237,206)
+#5c2f27	(92,47,39)
+#3a170d	(58,23,13) */

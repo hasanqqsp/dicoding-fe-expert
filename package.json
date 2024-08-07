@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-dev-server --config webpack.dev.js",
+    "start-dev": "webpack-dev-server --config webpack.dev.js ",
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
     "test": "jest",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
+    "@eslint/js": "^9.8.0",
     "@jest/globals": "^29.6.1",
     "@types/jest": "^29.5.3",
     "babel-jest": "^29.6.1",
@@ -23,21 +24,34 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.11.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^6.6.0",
     "fake-indexeddb": "^4.0.2",
+    "globals": "^15.9.0",
     "html-webpack-plugin": "^5.5.3",
     "http-server": "^14.1.1",
     "jest": "^29.6.1",
     "jest-environment-jsdom": "^29.6.1",
+    "prettier": "3.3.3",
     "style-loader": "^3.3.4",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
     "webpack-merge": "^5.9.0",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "workbox-webpack-plugin": "^7.1.0"
   },
   "dependencies": {
+    "idb": "^8.0.0",
     "regenerator-runtime": "^0.14.0",
+    "restaurant-apps": "file:",
     "sass": "^1.77.8",
-    "sass-loader": "^16.0.0"
+    "sass-loader": "^16.0.0",
+    "workbox-window": "^7.1.0"
   }
 }

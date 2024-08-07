@@ -1,0 +1,15 @@
+import "./restaurant-card";
+import "./spotify-player";
+import "./navbar";
+import "./footer";
+import "./hero-image";
+import "./back-button";
+import "./rating-badge";
+import "./restaurant-address";
+import "./favorite-button";
+import "./restaurant-badges";
+import "./restaurant-menus";
+import "./restaurant-reviews";
+import "./add-review";
+import "./loading-indicator";
+import "./error-request-indicator";
