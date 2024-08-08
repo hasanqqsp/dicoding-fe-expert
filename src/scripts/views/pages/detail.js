@@ -5,7 +5,7 @@ import "../../../styles/detail.scss";
 import FavoriteRestaurantIdb from "../../data/favorite-movie-idb";
 const Detail = {
   async render() {
-    return ` <div id="content">
+    return ` <div id="content" tabindex="0">
     </div> `;
   },
 
@@ -106,6 +106,12 @@ const Detail = {
       const addReviewComponent = container.querySelector("add-review");
       if (addReviewComponent) {
         container.removeChild(addReviewComponent);
+      }
+      const errorRequestIndicator = document.querySelector(
+        "error-request-indicator"
+      );
+      if (errorRequestIndicator) {
+        container.removeChild(errorRequestIndicator);
       }
       container.appendChild(this._createReviewForm());
     };

@@ -4,7 +4,7 @@ const Home = {
   async render() {
     return `
       <hero-image></hero-image>
-      <section id="content">
+      <section id="content" tabindex="0">
         <h2>
           Kunjungi Rekan Kami untuk
           <span class="brand-text">NgopiDisini</span>
