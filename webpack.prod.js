@@ -25,7 +25,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({ analyzerMode: "json" }),
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: "./sw.bundle.js",
       runtimeCaching: [
