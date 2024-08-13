@@ -21,17 +21,18 @@ class SpotifyPlayer extends HTMLElement {
 
   _renderOnline() {
     this.innerHTML = `<h2>Senang dengan Playlist Kami?</h2>
-        <p>Dengarkan sambil bekerja atau belajar</p>
-        <iframe
-          id="spotify-embed"
-          style="border-radius: 12px"
-          src="https://open.spotify.com/embed/playlist/3BF8FetYSDTETQx9g0zzXE?utm_source=generator"
-          width="100%"
-          frameborder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>`;
+      <p>Dengarkan sambil bekerja atau belajar</p>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/n_tLSXzJ2sY?si=2hvWNPqOiRhdkam-"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>`;
   }
 
   _renderOffline() {

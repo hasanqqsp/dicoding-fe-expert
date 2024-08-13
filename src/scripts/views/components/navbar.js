@@ -13,7 +13,7 @@ class NavigationBar extends HTMLElement {
           title="Coffee icons created by Flat Icons - Flaticon
                   "
         >
-          <img src="./images/coffee.png" alt="Ngopi Disini" />
+          <img src="./icons/apple-touch-icon.png" alt="Ngopi Disini" />
           <h1>NgopiDisini</h1>
         </a>
         <button class="navbar-toggler" aria-label="Toggle navigation">☰</button>

@@ -27,7 +27,8 @@ class RestaurantCard extends HTMLElement {
     this.innerHTML = `
       <article class="card">
         <img
-          src="${API_ENDPOINT.IMAGE("medium", this["_picture-id"])}"
+          class="lazyload"
+          data-src="${API_ENDPOINT.IMAGE("small", this["_picture-id"])}"
           alt="Restoran ${this._name}"
         />
 

@@ -1,5 +1,6 @@
 import RestaurantSource from "../../data/restaurant-source";
-
+import "lazysizes";
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
 const Home = {
   async render() {
     return `
@@ -13,7 +14,6 @@ const Home = {
         <div id="restaurant-lists">
         </div>
       </section>
-      <spotify-player></spotify-player>
       `;
   },
   _createCardComponent(restaurant) {

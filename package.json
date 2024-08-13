@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js ",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js && node sharp.js",
     "serve": "http-server dist",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "build-image": "node sharp.js"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -35,11 +36,15 @@
     "globals": "^15.9.0",
     "html-webpack-plugin": "^5.5.3",
     "http-server": "^14.1.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webp-webpack-plugin": "^3.3.6",
     "jest": "^29.6.1",
     "jest-environment-jsdom": "^29.6.1",
     "prettier": "3.3.3",
+    "sharp": "^0.33.4",
     "style-loader": "^3.3.4",
     "webpack": "^5.88.2",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
     "webpack-merge": "^5.9.0",
@@ -48,6 +53,7 @@
   },
   "dependencies": {
     "idb": "^8.0.0",
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.14.0",
     "restaurant-apps": "file:",
     "sass": "^1.77.8",
