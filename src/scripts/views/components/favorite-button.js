@@ -9,14 +9,14 @@ class FavoriteButton extends HTMLElement {
 
   async connectedCallback() {
     this._restaurant = JSON.parse(this.getAttribute("restaurant"));
-
-    this._isFavorite = await this._checkFavorite();
-    this.render();
+    if (this._restaurant?.id) {
+      this._isFavorite = await this._checkFavorite();
+    }
   }
 
   async _checkFavorite() {
     const restaurant = await FavoriteRestaurantIdb.getRestaurant(
-      this._restaurant.id
+      this._restaurant?.id
     );
     return !!restaurant;
   }
@@ -37,11 +37,13 @@ class FavoriteButton extends HTMLElement {
     } else {
       this._renderLike();
     }
-    const likeButton = document.querySelector("#favorite-button");
-    likeButton.addEventListener("click", this._buttonListener);
+    console.log(this.innerHTML);
+    // const likeButton = document.querySelector("#favorite-button");
+    // likeButton.addEventListener("click", this._buttonListener);
   }
 
   _renderLike() {
+    console.log("helo");
     this.innerHTML = `<button id="favorite-button">
       Tambahkan ke Favorit
       <svg
@@ -83,3 +85,5 @@ class FavoriteButton extends HTMLElement {
 }
 
 customElements.define("favorite-button", FavoriteButton);
+
+export { FavoriteButton };
