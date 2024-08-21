@@ -1,56 +1,60 @@
-// import FavoriteRestaurantIdb from "../src/scripts/data/favorite-restaurant-idb";
-// import * as TestFactories from "./helpers/testFactories";
+import FavoriteRestaurantIdb from "../src/scripts/data/favorite-restaurant-idb";
+import * as TestFactories from "./helpers/testFactories";
+import "../src/scripts/views/components/favorite-button";
 
-// describe("Unliking A Restaurant", () => {
-//   const addLikeButtonContainer = () => {
-//     document.body.innerHTML = '<div id="likeButtonContainer"></div>';
-//   };
+describe("Delete Restaurant From favorite", () => {
+  const addLikeButtonContainer = () => {
+    document.body.innerHTML = '<div id="likeButtonContainer"></div>';
+  };
 
-//   beforeEach(async () => {
-//     addLikeButtonContainer();
-//     await FavoriteRestaurantIdb.putRestaurant({ id: 1 });
-//   });
+  beforeEach(async () => {
+    addLikeButtonContainer();
+    await FavoriteRestaurantIdb.putRestaurant({ id: 1 });
+  });
 
-//   afterEach(async () => {
-//     await FavoriteRestaurantIdb.deleteRestaurant(1);
-//   });
+  afterEach(async () => {
+    await FavoriteRestaurantIdb.deleteRestaurant(1);
+  });
 
-//   it("should display unlike widget when the restaurant has been liked", async () => {
-//     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
+  it("should display delete from favorite button when the restaurant has been liked", async () => {
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-//     expect(
-//       document.querySelector('[aria-label="unlike this restaurant"]')
-//     ).toBeTruthy();
-//   });
+    const favoriteButton = document.querySelector(`#favorite-button`);
+    expect(favoriteButton).toBeTruthy();
 
-//   it("should not display like widget when the restaurant has been liked", async () => {
-//     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
+    expect(favoriteButton.textContent).toContain("Hapus dari Favorit");
+  });
 
-//     expect(
-//       document.querySelector('[aria-label="like this restaurant"]')
-//     ).toBeFalsy();
-//   });
+  it("should not display add to favorite button when the restaurant has been liked", async () => {
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-//   it("should be able to remove liked restaurant from the list", async () => {
-//     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
+    const favoriteButton = document.querySelector(`#favorite-button`);
+    expect(favoriteButton).toBeTruthy();
 
-//     document
-//       .querySelector('[aria-label="unlike this restaurant"]')
-//       .dispatchEvent(new Event("click"));
+    expect(favoriteButton.textContent).not.toContain("Tambahkan ke Favorit");
+  });
 
-//     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
-//   });
+  it("should be able to remove favorite restaurant from the list", async () => {
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-//   it("should not throw error when user click unlike widget if the unliked restaurant is not in the list", async () => {
-//     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
+    document
+      .querySelector("#favorite-button")
+      .dispatchEvent(new Event("click"));
 
-//     // Hapus dulu film dari daftar film yang disukai
-//     await FavoriteRestaurantIdb.deleteRestaurant(1);
+    expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
+  });
 
-//     // Kemudian, simulasikan pengguna menekan widget batal menyukai film
-//     document
-//       .querySelector('[aria-label="unlike this restaurant"]')
-//       .dispatchEvent(new Event("click"));
-//     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
-//   });
-// });
+  it("should not throw error when user click delete from favorite if that restaurant is not in the list", async () => {
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
+
+    // Hapus dulu restoran dari daftar restoran yang disukai
+    await FavoriteRestaurantIdb.deleteRestaurant(1);
+
+    // Kemudian, simulasikan pengguna menekan widget batal menyukai restoran
+    document
+      .querySelector("#favorite-button")
+      .dispatchEvent(new Event("click"));
+
+    expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
+  });
+});

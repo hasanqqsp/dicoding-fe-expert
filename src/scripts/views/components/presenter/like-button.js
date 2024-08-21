@@ -17,6 +17,13 @@ const LikeButtonPresenter = {
       "is-favorite",
       `${await this._isRestaurantExist(id)}`
     );
+    favoriteButton.addEventListener("add-favorite", (ev) => {
+      FavoriteRestaurantIdb.putRestaurant(ev.detail.restaurant);
+    });
+
+    favoriteButton.addEventListener("delete-favorite", (ev) => {
+      FavoriteRestaurantIdb.deleteRestaurant(ev.detail.id);
+    });
     this._likeButtonContainer.appendChild(favoriteButton);
   },
 

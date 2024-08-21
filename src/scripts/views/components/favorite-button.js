@@ -2,27 +2,16 @@ class FavoriteButton extends HTMLElement {
   constructor() {
     super();
     this._buttonListener = this._buttonListener.bind(this);
-    console.log(this._restaurant);
   }
 
   async connectedCallback() {
     this._isFavorite = this.getAttribute("is-favorite") == "true";
     this._restaurant = JSON.parse(this.getAttribute("restaurant"));
-    console.log(this._restaurant);
-    this.render();
-  }
-  static observedAttributes = ["is-favorite", "restaurant"];
-
-  attributeChangedCallback(name, _, newValue) {
-    if (name === "is-favorite") {
-      this._isFavorite = newValue === "true";
-    } else if (name === "restaurant") {
-      this._restaurant = JSON.parse(newValue);
-    }
     this.render();
   }
 
   async _buttonListener() {
+    console.log("click");
     if (this._isFavorite) {
       this.dispatchEvent(
         new CustomEvent("delete-favorite", {
