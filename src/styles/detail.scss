@@ -5,6 +5,7 @@
   object-fit: cover;
   box-sizing: border-box;
   margin-top: 1rem;
+  aspect-ratio: 4/3;
 }
 
 .back-button {
@@ -63,10 +64,13 @@
     margin-right: 0.25rem;
   }
 }
-
+.restaurant-description {
+  min-height: 12rem;
+}
 .restaurant-menu {
   margin-top: 1rem;
   display: grid;
+  min-height: 12rem;
 
   h3 {
     font-size: 2rem;
@@ -91,6 +95,7 @@
   }
 }
 .restaurant-reviews {
+  height: 8rem;
   h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;

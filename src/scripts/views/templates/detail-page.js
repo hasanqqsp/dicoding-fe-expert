@@ -16,11 +16,18 @@ export const DetailPageTemplate = {
     restaurantName.classList.add("restaurant-name");
     return restaurantName;
   },
-  _createRestaurantImage(imageSrc, imageAlt) {
-    const restaurantImage = document.createElement("img");
-    restaurantImage.src = imageSrc;
-    restaurantImage.classList.add("restaurant-image");
-    restaurantImage.setAttribute("alt", imageAlt);
+  _createRestaurantImage(pictureId, imageAlt) {
+    
+    const restaurantImage = document.createElement("picture");
+    restaurantImage.innerHTML = `
+    
+    <source media="(max-width: 300px)" srcset="${API_ENDPOINT.IMAGE("small",pictureId)}">
+    <source media="(max-width: 640px)" srcset="${API_ENDPOINT.IMAGE("medium",pictureId)}">
+        <source media="(min-width: 800px)" srcset="${API_ENDPOINT.IMAGE("large",pictureId)}">
+
+        <img class="restaurant-image" src="${API_ENDPOINT.IMAGE("medium",pictureId)}"
+             alt="${imageAlt}">
+      `
     return restaurantImage;
   },
   _createRestaurantBadges(categories, rating) {
@@ -103,7 +110,7 @@ export const DetailPageTemplate = {
 
     restaurantContainer.appendChild(
       this._createRestaurantImage(
-        API_ENDPOINT.IMAGE("large", restaurant.pictureId),
+         restaurant.pictureId,
         restaurant.name
       )
     );
