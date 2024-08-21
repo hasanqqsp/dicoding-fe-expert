@@ -11,7 +11,7 @@ const config = {
   setupFiles: ["fake-indexeddb/auto"],
 
   // The test environment that will be used for testing
-  testEnvironment: "@happy-dom/jest-environment",
+  testEnvironment: "jsdom",
 
   // A map from regular expressions to paths to transformers
   transform: {

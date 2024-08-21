@@ -53,7 +53,7 @@ class AddReview extends HTMLElement {
           </div>
           <div class="form-group">
             <label for="review" class="form-label">Ulasan</label>
-            <textarea id="review" name="review" class="form-control">${this._reviewData?.review || ""}</textarea>
+            <textarea id="review" name="review" class="form-control" required>${this._reviewData?.review || ""}</textarea>
           </div>
           <p style="margin-bottom:0.5rem">${this._errorMessage || ""}</p>
           <div class="button-container">

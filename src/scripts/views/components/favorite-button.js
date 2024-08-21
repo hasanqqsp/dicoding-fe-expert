@@ -1,31 +1,40 @@
-import FavoriteRestaurantIdb from "../../data/favorite-movie-idb";
-
 class FavoriteButton extends HTMLElement {
   constructor() {
     super();
     this._buttonListener = this._buttonListener.bind(this);
-    this._checkFavorite = this._checkFavorite.bind(this);
+    console.log(this._restaurant);
   }
 
   async connectedCallback() {
+    this._isFavorite = this.getAttribute("is-favorite") == "true";
     this._restaurant = JSON.parse(this.getAttribute("restaurant"));
-    if (this._restaurant?.id) {
-      this._isFavorite = await this._checkFavorite();
-    }
+    console.log(this._restaurant);
+    this.render();
   }
+  static observedAttributes = ["is-favorite", "restaurant"];
 
-  async _checkFavorite() {
-    const restaurant = await FavoriteRestaurantIdb.getRestaurant(
-      this._restaurant?.id
-    );
-    return !!restaurant;
+  attributeChangedCallback(name, _, newValue) {
+    if (name === "is-favorite") {
+      this._isFavorite = newValue === "true";
+    } else if (name === "restaurant") {
+      this._restaurant = JSON.parse(newValue);
+    }
+    this.render();
   }
 
   async _buttonListener() {
     if (this._isFavorite) {
-      await FavoriteRestaurantIdb.deleteRestaurant(this._restaurant.id);
+      this.dispatchEvent(
+        new CustomEvent("delete-favorite", {
+          detail: { id: this._restaurant.id },
+        })
+      );
     } else {
-      await FavoriteRestaurantIdb.putRestaurant(this._restaurant);
+      this.dispatchEvent(
+        new CustomEvent("add-favorite", {
+          detail: { restaurant: this._restaurant },
+        })
+      );
     }
     this._isFavorite = !this._isFavorite;
     this.render();
@@ -37,13 +46,11 @@ class FavoriteButton extends HTMLElement {
     } else {
       this._renderLike();
     }
-    console.log(this.innerHTML);
-    // const likeButton = document.querySelector("#favorite-button");
-    // likeButton.addEventListener("click", this._buttonListener);
+    const likeButton = document.querySelector("#favorite-button");
+    likeButton.addEventListener("click", this._buttonListener);
   }
 
   _renderLike() {
-    console.log("helo");
     this.innerHTML = `<button id="favorite-button">
       Tambahkan ke Favorit
       <svg
